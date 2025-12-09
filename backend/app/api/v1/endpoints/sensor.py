@@ -15,8 +15,15 @@ def ingest(sensor_batch: SensorIn = Body(...), db: Session = Depends(get_db)):
     return SensorAck(status="ok")
 
 
+@router.post("/upload_image", response_model=ImageUploadResponse)
+def upload_image(file: UploadFile = File(...), db: Session = Depends(get_db)):
+    """Upload an image from Tinkercad, extract sensor values via OCR, and predict adulteration."""
+    sensor_id = f"tinkercad-{uuid.uuid4().hex[:8]}"
+    return process_image_and_predict(file, sensor_id, db)
+
+
 @router.get("/mock", response_model=SensorIn)
 def mock_feed():
     """Provide mock sensor data for UI development."""
     return SensorIn(sensor_id="mock-01", values=[123, 256, 301, 220, 180, 90])
-
+    

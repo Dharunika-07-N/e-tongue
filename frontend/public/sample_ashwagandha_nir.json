@@ -1,0 +1,49 @@
+{
+  "sample_id": "HERB-2025-002",
+  "herb_name": "Ashwagandha (Withania somnifera)",
+  "batch_no": "BCH-9713",
+  "date_received": "2025-01-10",
+  "upload_info": {
+    "uploaded_by": "Test User",
+    "device_id": "ETNG-001-AI",
+    "raw_data_file": "ashwagandha_nir_raw.json"
+  },
+  "taste_profile": {
+    "sweet": 0.18,
+    "sour": 0.12,
+    "salty": 0.05,
+    "bitter": 0.75,
+    "pungent": 0.25,
+    "astringent": 0.55
+  },
+  "realtime_sensor_readings": [
+    { "time": 0, "voltage": 0.18 },
+    { "time": 1, "voltage": 0.24 },
+    { "time": 2, "voltage": 0.30 },
+    { "time": 3, "voltage": 0.38 },
+    { "time": 4, "voltage": 0.45 },
+    { "time": 5, "voltage": 0.52 }
+  ],
+  "phytochemicals": {
+    "flavonoids": 18.2,
+    "polyphenols": 15.3,
+    "terpenoids": 12.8,
+    "alkaloids": 8.5
+  },
+  "spectral_data": {
+    "wavelength": [800, 900, 1000, 1100, 1200, 1300, 1400, 1500],
+    "reflectance": [0.85, 0.82, 0.78, 0.75, 0.72, 0.68, 0.65, 0.62]
+  },
+  "ai_predictions": {
+    "rasa_classification": "Tikta (Bitter)",
+    "probability": 0.88,
+    "detected_adulteration": false,
+    "adulteration_score": 0.06
+  },
+  "quality_assessment": {
+    "overall_quality_score": 82,
+    "grade": "A",
+    "comments": "Good quality Ashwagandha sample with characteristic bitter taste profile."
+  }
+}
+

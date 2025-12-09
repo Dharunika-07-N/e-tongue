@@ -1,0 +1,49 @@
+{
+  "sample_id": "HERB-2025-003",
+  "herb_name": "Turmeric (Curcuma longa)",
+  "batch_no": "BCH-9714",
+  "date_received": "2025-01-10",
+  "upload_info": {
+    "uploaded_by": "Test User",
+    "device_id": "ETNG-001-AI",
+    "raw_data_file": "turmeric_raman_raw.json"
+  },
+  "taste_profile": {
+    "sweet": 0.08,
+    "sour": 0.15,
+    "salty": 0.03,
+    "bitter": 0.45,
+    "pungent": 0.85,
+    "astringent": 0.30
+  },
+  "realtime_sensor_readings": [
+    { "time": 0, "voltage": 0.25 },
+    { "time": 1, "voltage": 0.32 },
+    { "time": 2, "voltage": 0.40 },
+    { "time": 3, "voltage": 0.48 },
+    { "time": 4, "voltage": 0.55 },
+    { "time": 5, "voltage": 0.62 }
+  ],
+  "phytochemicals": {
+    "flavonoids": 15.8,
+    "polyphenols": 20.5,
+    "terpenoids": 18.2,
+    "alkaloids": 2.1
+  },
+  "spectral_data": {
+    "shift": [200, 400, 600, 800, 1000, 1200, 1400, 1600],
+    "intensity": [120, 180, 250, 320, 380, 420, 450, 480]
+  },
+  "ai_predictions": {
+    "rasa_classification": "Katu (Pungent)",
+    "probability": 0.91,
+    "detected_adulteration": false,
+    "adulteration_score": 0.03
+  },
+  "quality_assessment": {
+    "overall_quality_score": 89,
+    "grade": "A",
+    "comments": "High quality Turmeric with strong pungent characteristics and good curcumin content."
+  }
+}
+

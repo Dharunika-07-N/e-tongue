@@ -4,6 +4,7 @@ import SpectralPlot from "./components/SpectralPlot";
 import UploadForm from "./components/UploadForm";
 import Alerts from "./components/Alerts";
 import ModelUpdate from "./components/ModelUpdate";
+import TestDataHelper from "./components/TestDataHelper";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <UploadForm />
         <ModelUpdate />
       </div>
+
+      <TestDataHelper />
 
       <Alerts />
     </div>

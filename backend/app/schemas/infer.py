@@ -22,6 +22,7 @@ class Prediction(BaseModel):
 class InferResponse(BaseModel):
     rasa: Prediction
     quality: Prediction
+    adulteration: Prediction
     adulteration_score: float
     threshold: float
 

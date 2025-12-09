@@ -1,0 +1,49 @@
+{
+  "sample_id": "HERB-2025-001",
+  "herb_name": "Tulsi (Ocimum sanctum)",
+  "batch_no": "BCH-9712",
+  "date_received": "2025-01-10",
+  "upload_info": {
+    "uploaded_by": "Test User",
+    "device_id": "ETNG-001-AI",
+    "raw_data_file": "tulsi_ftir_raw.json"
+  },
+  "taste_profile": {
+    "sweet": 0.12,
+    "sour": 0.35,
+    "salty": 0.08,
+    "bitter": 0.82,
+    "pungent": 0.64,
+    "astringent": 0.40
+  },
+  "realtime_sensor_readings": [
+    { "time": 0, "voltage": 0.22 },
+    { "time": 1, "voltage": 0.28 },
+    { "time": 2, "voltage": 0.32 },
+    { "time": 3, "voltage": 0.41 },
+    { "time": 4, "voltage": 0.55 },
+    { "time": 5, "voltage": 0.60 }
+  ],
+  "phytochemicals": {
+    "flavonoids": 23.5,
+    "polyphenols": 12.7,
+    "terpenoids": 8.2,
+    "alkaloids": 3.6
+  },
+  "spectral_data": {
+    "wavenumber": [4000, 3500, 3000, 2500, 2000, 1500, 1000, 500],
+    "absorbance": [0.1, 0.15, 0.22, 0.35, 0.45, 0.62, 0.78, 0.85]
+  },
+  "ai_predictions": {
+    "rasa_classification": "Katu + Tikta (Pungent + Bitter)",
+    "probability": 0.92,
+    "detected_adulteration": false,
+    "adulteration_score": 0.04
+  },
+  "quality_assessment": {
+    "overall_quality_score": 87,
+    "grade": "A",
+    "comments": "Authentic sample. High bitterness and pungency match standard Tulsi profile."
+  }
+}
+
