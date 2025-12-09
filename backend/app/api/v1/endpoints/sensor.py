@@ -1,7 +1,10 @@
-from fastapi import APIRouter, Body, Depends
+import uuid
+from fastapi import APIRouter, UploadFile, File, Depends, Body
 from sqlalchemy.orm import Session
 
+from app.schemas.infer import ImageUploadResponse
 from app.schemas.sensor import SensorIn, SensorAck
+from app.services.image_processor import process_image_and_predict
 from app.services.ingest import ingest_sensor_batch
 from app.db.session import get_db
 
@@ -16,10 +19,10 @@ def ingest(sensor_batch: SensorIn = Body(...), db: Session = Depends(get_db)):
 
 
 @router.post("/upload_image", response_model=ImageUploadResponse)
-def upload_image(file: UploadFile = File(...), db: Session = Depends(get_db)):
+async def upload_image(file: UploadFile = File(...), db: Session = Depends(get_db)):
     """Upload an image from Tinkercad, extract sensor values via OCR, and predict adulteration."""
     sensor_id = f"tinkercad-{uuid.uuid4().hex[:8]}"
-    return process_image_and_predict(file, sensor_id, db)
+    return await process_image_and_predict(file, sensor_id, db)
 
 
 @router.get("/mock", response_model=SensorIn)

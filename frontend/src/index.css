@@ -3,6 +3,36 @@
 @tailwind utilities;
 
 .card {
-  @apply bg-white shadow rounded p-4 border border-gray-100;
+  @apply rounded-xl p-4 border border-slate-800/60 shadow-2xl shadow-black/40 backdrop-blur-lg;
 }
 
+.ocean-bg {
+  background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.05)),
+    radial-gradient(circle at 80% 10%, rgba(14, 165, 233, 0.12), rgba(15, 23, 42, 0.05)),
+    linear-gradient(120deg, #0f172a, #0b2340, #0d3a55);
+  background-size: 200% 200%;
+  animation: oceanFlow 20s ease-in-out infinite;
+}
+
+@keyframes oceanFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.glass {
+  background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15), rgba(14, 165, 233, 0.05)),
+    rgba(15, 23, 42, 0.8);
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-indigo-500 to-cyan-500 text-white px-4 py-2 rounded-lg shadow-lg shadow-indigo-500/30 hover:from-indigo-400 hover:to-cyan-400 transition font-semibold;
+}
+
+.btn-secondary {
+  @apply bg-slate-800 text-slate-100 px-4 py-2 rounded-lg border border-slate-700 hover:border-cyan-400 transition;
+}
+
+.input {
+  @apply w-full rounded-lg border border-slate-700 bg-slate-900/60 p-2 text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none;
+}

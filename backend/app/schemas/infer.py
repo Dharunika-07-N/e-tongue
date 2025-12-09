@@ -1,5 +1,11 @@
 from typing import List, Optional
 from pydantic import BaseModel, Field
+from pydantic import BaseModel
+
+class ImageUploadResponse(BaseModel):
+    success: bool
+    message: str
+    file_path: str | None = None
 
 
 class SensorBlock(BaseModel):

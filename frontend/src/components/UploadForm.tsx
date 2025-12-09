@@ -17,12 +17,12 @@ export default function UploadForm() {
   };
 
   return (
-    <form className="card space-y-3" onSubmit={submit}>
-      <div className="font-semibold">Upload Spectra</div>
-      <input className="w-full border rounded p-2" name="herb_name" placeholder="Herb name" required />
-      <input className="w-full border rounded p-2" name="batch_no" placeholder="Batch no" required />
-      <input className="w-full border rounded p-2" name="supplier" placeholder="Supplier" />
-      <select className="w-full border rounded p-2" name="spectra_type" required>
+    <form className="card glass space-y-3" onSubmit={submit}>
+      <div className="font-semibold text-slate-100">Upload Spectra (optional)</div>
+      <input className="input" name="herb_name" placeholder="Herb name" required />
+      <input className="input" name="batch_no" placeholder="Batch no" required />
+      <input className="input" name="supplier" placeholder="Supplier" />
+      <select className="input" name="spectra_type" required>
         <option value="ftir">FTIR</option>
         <option value="nir">NIR</option>
         <option value="raman">Raman</option>
@@ -30,10 +30,10 @@ export default function UploadForm() {
         <option value="lcms">LC-MS</option>
       </select>
       <input className="w-full" type="file" name="file" required />
-      <button className="bg-indigo-600 text-white px-4 py-2 rounded" type="submit">
+      <button className="btn-secondary" type="submit">
         Upload
       </button>
-      <div className="text-sm text-gray-500">{status}</div>
+      <div className="text-sm text-slate-300">{status}</div>
     </form>
   );
 }
