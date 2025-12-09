@@ -26,9 +26,7 @@ export default function SpectralPlot({ spectra }: Props) {
             fill="none"
             stroke="currentColor"
             strokeWidth="2.5"
-            points={points
-              .map((p) => `${(p.x / (points.length - 1)) * 200},${80 - (p.y / maxY) * 70}`)
-              .join(" ")}
+            points={points.map((p) => `${(p.x / (points.length - 1)) * 200},${80 - (p.y / maxY) * 70}`).join(" ")}
           />
         ) : (
           <circle cx="100" cy={80 - (points[0].y / maxY) * 70} r="3" fill="currentColor" />
