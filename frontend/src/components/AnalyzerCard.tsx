@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../api/client";
+import { analyzeAdulteration, AdulterationResponse } from "../api/analyzer";
 
 type InferenceResult = {
   rasa: { label: string; confidence: number };
@@ -31,6 +32,30 @@ export default function AnalyzerCard({ onResult }: Props) {
     setLoading(true);
     setStatus("Analyzing...");
     try {
+      // Prefer the dedicated adulteration endpoint; fall back to full inference if needed.
+      let adulterationOnly: AdulterationResponse | null = null;
+      try {
+        adulterationOnly = await analyzeAdulteration(numeric);
+      } catch (err) {
+        console.warn("Adulteration endpoint failed, falling back to /infer", err);
+      }
+
+      if (adulterationOnly?.success) {
+        const mapped: InferenceResult = {
+          rasa: { label: "unknown", confidence: 0.5 },
+          quality: { label: "authentic", confidence: 0.5 },
+          adulteration: {
+            label: adulterationOnly.is_adulterated ? "Adulterated" : "Pure",
+            confidence: adulterationOnly.confidence,
+          },
+          adulteration_score: adulterationOnly.confidence,
+          threshold: 0,
+        };
+        onResult(mapped, numeric);
+        setStatus(adulterationOnly.details || "Analysis complete");
+        return;
+      }
+
       const payload = {
         sensor: { values: numeric },
         spectra: [0, 0, 0], // placeholder spectral vector
@@ -43,7 +68,8 @@ export default function AnalyzerCard({ onResult }: Props) {
       setStatus("Analysis complete");
     } catch (err) {
       console.error(err);
-      setStatus("Failed to analyze");
+      const message = err instanceof Error ? err.message : "Failed to analyze";
+      setStatus(message);
     } finally {
       setLoading(false);
       setTimeout(() => setStatus(""), 3000);
